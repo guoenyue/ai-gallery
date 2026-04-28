@@ -93,3 +93,5 @@ pm2 start ecosystem.config.cjs
 pnpm deploy:remote -- --host x.x.x.x --user deploy --path /srv/ai-gallery
 pnpm deploy:server -- --first --repo https://github.com/guoenyue/ai-gallery.git --path /srv/ai-gallery
 ```
+
+Nginx 反向代理模板见 [deploy/nginx/sites-enabled/ai-gallery.conf](deploy/nginx/sites-enabled/ai-gallery.conf)。生图接口可能持续数分钟，部署时请保留较长的 `proxy_read_timeout`、`proxy_send_timeout` 和 `send_timeout`，不要使用 60 秒以内的默认超时。
