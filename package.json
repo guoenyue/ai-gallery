@@ -1,0 +1,46 @@
+{
+  "name": "ai-gallery",
+  "version": "0.1.0",
+  "description": "Open-source AI image generation gallery with a Next.js frontend, NestJS API, user accounts, image history, local storage, and OpenAI-compatible base URL configuration.",
+  "private": true,
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/guoenyue/ai-gallery.git"
+  },
+  "bugs": {
+    "url": "https://github.com/guoenyue/ai-gallery/issues"
+  },
+  "homepage": "https://github.com/guoenyue/ai-gallery#readme",
+  "packageManager": "pnpm@10.33.0",
+  "engines": {
+    "node": ">=18.17.0",
+    "pnpm": ">=10.0.0"
+  },
+  "keywords": [
+    "ai",
+    "image-generation",
+    "openai",
+    "gallery",
+    "nextjs",
+    "nestjs",
+    "mongodb",
+    "typescript"
+  ],
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "author": "guoenyue",
+  "scripts": {
+    "build": "pnpm -r build",
+    "dev": "pnpm --parallel --filter @ai-gallery/web --filter @ai-gallery/api dev",
+    "deploy": "pm2 startOrReload ecosystem.config.cjs --update-env",
+    "deploy:remote": "node scripts/deploy-remote.mjs",
+    "deploy:server": "node scripts/deploy-server.mjs",
+    "gen:rsa": "node scripts/generate-rsa-keypair.mjs",
+    "lint": "pnpm -r lint",
+    "start": "pnpm --parallel --filter @ai-gallery/web --filter @ai-gallery/api start",
+    "test": "pnpm -r test"
+  }
+}

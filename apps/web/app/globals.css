@@ -1,0 +1,65 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: 32 67% 97%;
+  --foreground: 20 31% 14%;
+  --card: 0 0% 100%;
+  --card-foreground: 20 31% 14%;
+  --primary: 19 75% 43%;
+  --primary-foreground: 35 100% 98%;
+  --secondary: 40 41% 93%;
+  --secondary-foreground: 24 28% 20%;
+  --muted: 36 33% 94%;
+  --muted-foreground: 24 12% 38%;
+  --accent: 28 100% 92%;
+  --accent-foreground: 20 40% 20%;
+  --border: 28 27% 80%;
+  --input: 28 25% 82%;
+  --ring: 20 80% 54%;
+  --success: 141 52% 41%;
+  --warning: 38 89% 48%;
+  --danger: 16 77% 56%;
+}
+
+* {
+  border-color: hsl(var(--border));
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at 12% 18%, rgba(236, 145, 63, 0.18), transparent 20%),
+    radial-gradient(circle at 82% 10%, rgba(233, 198, 144, 0.22), transparent 28%),
+    linear-gradient(180deg, #fffaf4 0%, #f7f0e7 48%, #f0f2f4 100%);
+  color: hsl(var(--foreground));
+  font-family: "Space Grotesk", "Avenir Next", "Segoe UI", sans-serif;
+  position: relative;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.22), rgba(255, 255, 255, 0.22)),
+    radial-gradient(rgba(78, 43, 14, 0.045) 0.6px, transparent 0.6px);
+  background-size: 100% 100%, 16px 16px;
+  opacity: 0.42;
+}
+
+::selection {
+  background: rgba(201, 97, 28, 0.18);
+}
