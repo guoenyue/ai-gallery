@@ -18,12 +18,14 @@
 
 - `apps/web`：Next.js + React + Tailwind CSS
 - `apps/api`：NestJS + MongoDB + Mongoose
+- `apps/mobile`：Expo + React Native
 
 ## 环境要求
 
 - Node.js `18.17+`
 - `pnpm 10+`
 - MongoDB `6+` 或 `7+`
+- Expo Go（真机调试）或 Xcode/Android Studio（模拟器调试）
 
 ## 快速开始
 
@@ -58,11 +60,31 @@ pnpm dev
 - 前端：`http://localhost:3000`
 - 后端：`http://localhost:4000`
 
+## Expo 移动端
+
+移动端代码位于 `apps/mobile`，复用同一套用户、配置和作品历史接口。
+
+```bash
+pnpm dev
+pnpm dev:mobile
+```
+
+如果使用真机 Expo Go，`localhost` 指向手机自身，不能访问电脑上的 API。请在 `.env` 里把 `EXPO_PUBLIC_API_BASE_URL` 改成电脑局域网地址，例如：
+
+```bash
+EXPO_PUBLIC_API_BASE_URL=http://192.168.1.8:4000
+```
+
+也可以在移动端登录页直接填写 API 地址。iOS 模拟器通常可继续使用 `http://localhost:4000`，Android 模拟器一般使用 `http://10.0.2.2:4000`。
+
 ## 常用命令
 
 ```bash
 pnpm build
 pnpm test
+pnpm dev:mobile
+pnpm mobile:ios
+pnpm mobile:android
 pnpm --filter @ai-gallery/api test
 pnpm --filter @ai-gallery/web test
 pnpm --filter @ai-gallery/api start
